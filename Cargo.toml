@@ -10,7 +10,7 @@ anyhow = { version = "1.0.86", features = ["backtrace"] }
 byteorder = "1.5.0"
 clap = { version = "4.5.6", features = ["derive"] }
 crossbeam = "0.8.4"
-ctrlc = "3.4.4"
+ctrlc = "3.4.5"
 env_logger = "0.11.3"
 industrial-io = { version = "0.5.2", default-features = false }
 log = "0.4.21"
