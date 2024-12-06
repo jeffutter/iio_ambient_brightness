@@ -6,15 +6,9 @@
       url = "github:oxalica/rust-overlay";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
       };
     };
-    crane = {
-      url = "github:ipetkov/crane";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
+    crane.url = "github:ipetkov/crane";
   };
 
   outputs =
@@ -32,7 +26,7 @@
         pkgs = import nixpkgs { inherit system overlays; };
 
         lib = nixpkgs.lib;
-        craneLib = crane.lib.${system};
+        craneLib = crane.mkLib pkgs;
 
         src = lib.cleanSourceWith { src = craneLib.path ./.; };
 
