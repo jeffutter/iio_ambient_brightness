@@ -118,7 +118,7 @@ struct AmbientBrightnessController<'a> {
     command_receiver: Receiver<Command>,
 }
 
-impl<'a> AmbientBrightnessController<'a> {
+impl AmbientBrightnessController<'_> {
     fn create(close_receiver: Receiver<()>, command_receiver: Receiver<Command>) -> Result<Self> {
         let connection = Connection::system()?;
         let proxy = SessionProxyBlocking::builder(&connection)
