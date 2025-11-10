@@ -47,7 +47,7 @@
               rust-analyzer
               rustc
             ];
-            buildInputs = with pkgs; [ libiio.lib ] ++ lib.optionals stdenv.isDarwin [ libiconv ];
+            buildInputs = with pkgs; [ libiio.lib libiio.dev ] ++ lib.optionals stdenv.isDarwin [ libiconv ];
           }
           // envVars
         );
@@ -83,6 +83,8 @@
               rustc
               rustfmt
               libiio.lib
+              libiio.dev
+              pkg-config
             ];
           }
           // envVars
