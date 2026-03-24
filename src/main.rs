@@ -7,17 +7,17 @@ mod screen_brightness;
 use std::{
     fs,
     sync::{
-        atomic::{self, AtomicBool},
         Arc,
+        atomic::{self, AtomicBool},
     },
     time::Duration,
 };
 
 use ambient_brightness::AmbientBrightness;
-use anyhow::{anyhow, Context, Result};
+use anyhow::{Context, Result, anyhow};
 use clap::Parser;
 use crossbeam::{
-    channel::{bounded, tick, Receiver},
+    channel::{Receiver, bounded, tick},
     select,
 };
 use env_logger::Env;

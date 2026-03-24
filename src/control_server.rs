@@ -3,8 +3,8 @@ use std::{
     io::ErrorKind,
     path::Path,
     sync::{
-        atomic::{self, AtomicBool},
         Arc,
+        atomic::{self, AtomicBool},
     },
     thread::{self, JoinHandle},
     time::Duration,
@@ -12,10 +12,10 @@ use std::{
 
 use anyhow::Result;
 use byteorder::ReadBytesExt;
-use crossbeam::channel::{bounded, Receiver, Sender};
+use crossbeam::channel::{Receiver, Sender, bounded};
 use log::{debug, error, info, trace};
-use mio::{net::UnixListener, Events, Interest, Poll, Token};
-use retry::{delay::Fixed, retry, OperationResult};
+use mio::{Events, Interest, Poll, Token, net::UnixListener};
+use retry::{OperationResult, delay::Fixed, retry};
 
 pub enum Command {
     Idle,
